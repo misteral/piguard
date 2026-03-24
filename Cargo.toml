@@ -1,0 +1,21 @@
+[package]
+name = "piguard"
+version = "0.1.0"
+edition = "2021"
+description = "Fast local prompt injection detector (PIGuard, DeBERTa-v3-base)"
+
+[dependencies]
+ort = { version = "2.0.0-rc.12" }
+tokenizers = { version = "0.21", features = ["http"] }
+clap = { version = "4", features = ["derive"] }
+ndarray = "0.16"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+dirs = "6"
+anyhow = "1"
+atty = "0.2.14"
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
